@@ -1,6 +1,7 @@
 import Container from "../components/container";
 import Layout from "../components/layout";
 import Head from "next/head";
+import SplitPanel from "../components/splitPanel";
 
 export default function Index() {
   return (
@@ -8,7 +9,9 @@ export default function Index() {
       <Head>
         <title>Swift Ninja - Online Swift Playground</title>
       </Head>
-      <Container></Container>
+      <Container>
+        <SplitPanel></SplitPanel>
+      </Container>
     </Layout>
   );
 }
