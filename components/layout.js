@@ -4,10 +4,10 @@ import Navbar from "../components/navbar";
 
 export default function Layout({ preview, children }) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="h-screen">
       <Meta />
       <Navbar />
-      <div className="flex-grow">
+      <div className="">
         <main>{children}</main>
       </div>
       <Footer />
