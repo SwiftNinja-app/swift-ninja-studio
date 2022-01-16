@@ -1,6 +1,6 @@
-export class Runnder {
-  constructor(onMessage) {
-    this.onMessage = onMessage;
+export default class Runnder {
+  constructor() {
+    this.onMessage = () => {};
   }
 
   async run(param) {

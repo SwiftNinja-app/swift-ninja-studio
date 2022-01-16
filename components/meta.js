@@ -99,7 +99,7 @@ export default function Meta() {
       /> */}
       <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#333333"></link>
       <link rel="canonical" href={canonicalURL} />
-      <link rel="manifest" href="/manifest.json" />
+      {/* <link rel="manifest" href="/manifest.json" /> */}
       <meta name="msapplication-TileColor" content="#ffffff" />
       {/* <meta
         name="msapplication-TileImage"

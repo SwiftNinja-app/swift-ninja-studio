@@ -4,12 +4,6 @@ import React, { useRef } from "react";
 export default function MonacoEditor({ onRunCallback, onShareCallback }) {
   const editorRef = useRef(null);
 
-  const handleEditorWillMount = (monaco) => {
-    // here is the monaco instance
-    // do something before editor is mounted
-    monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
-  };
-
   const handleEditorDidMount = (editor, monaco) => {
     editorRef.current = editor;
     console.log("Editor Did Mount")
@@ -17,7 +11,7 @@ export default function MonacoEditor({ onRunCallback, onShareCallback }) {
   };
 
   const prepareBinding = () => {
-    this.editorRef.addAction({
+    editorRef.current.addAction({
       id: "run",
       label: "Run",
       keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter],
@@ -25,7 +19,7 @@ export default function MonacoEditor({ onRunCallback, onShareCallback }) {
         onRunCallback();
       },
     });
-    this.editorRef.addAction({
+    editorRef.current.addAction({
       id: "share",
       label: "Share",
       keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS],
@@ -41,7 +35,6 @@ export default function MonacoEditor({ onRunCallback, onShareCallback }) {
       theme="vs-light"
       defaultValue="// some comment"
       defaultLanguage="swift"
-      beforeMount={handleEditorWillMount}
       onMount={handleEditorDidMount}
       options={{
         minimap: {

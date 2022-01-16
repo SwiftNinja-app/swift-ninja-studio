@@ -1,7 +1,12 @@
 import Container from "../components/container";
 import Layout from "../components/layout";
 import Head from "next/head";
-import SplitPanel from "../components/splitPanel";
+import dynamic from 'next/dynamic'
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('../components/splitPanel'),
+  { ssr: false }
+)
 
 export default function Index() {
   return (
@@ -10,7 +15,7 @@ export default function Index() {
         <title>Swift Ninja - Online Swift Playground</title>
       </Head>
       <Container>
-        <SplitPanel></SplitPanel>
+        <DynamicComponentWithNoSSR/>
       </Container>
     </Layout>
   );
