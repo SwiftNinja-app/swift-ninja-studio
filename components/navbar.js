@@ -8,7 +8,7 @@ export default function NavBar() {
           </a>
 
           <nav className="items-center hidden pl-8 ml-8 space-x-8 text-sm font-medium border-l border-gray-100 md:flex">
-            <a href="">Start</a>
+            <a href="">Run</a>
             <a href="">Stop</a>
             <a href="">Sample Code</a>
           </nav>
