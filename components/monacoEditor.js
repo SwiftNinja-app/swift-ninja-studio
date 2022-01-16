@@ -1,8 +1,8 @@
 import Editor from "@monaco-editor/react";
 import React, { useRef } from "react";
 
-export default function MonacoEditor() {
-  const monacoRef = useRef(null);
+export default function MonacoEditor({ onRunCallback, onShareCallback }) {
+  const editorRef = useRef(null);
 
   const handleEditorWillMount = (monaco) => {
     // here is the monaco instance
@@ -11,8 +11,29 @@ export default function MonacoEditor() {
   };
 
   const handleEditorDidMount = (editor, monaco) => {
-    monacoRef.current = editor;
+    editorRef.current = editor;
+    console.log("Editor Did Mount")
+    prepareBinding();
   };
+
+  const prepareBinding = () => {
+    this.editorRef.addAction({
+      id: "run",
+      label: "Run",
+      keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter],
+      run: () => {
+        onRunCallback();
+      },
+    });
+    this.editorRef.addAction({
+      id: "share",
+      label: "Share",
+      keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS],
+      run: () => {
+        onShareCallback();
+      },
+    });
+  }
 
   return (
     <Editor
