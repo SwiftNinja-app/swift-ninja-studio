@@ -16,7 +16,8 @@ export default function MonacoEditor({ onRunCallback, onShareCallback }) {
       label: "Run",
       keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter],
       run: () => {
-        onRunCallback();
+        const code = editorRef.current.getValue();
+        onRunCallback(code);
       },
     });
     editorRef.current.addAction({
@@ -27,7 +28,7 @@ export default function MonacoEditor({ onRunCallback, onShareCallback }) {
         onShareCallback();
       },
     });
-  }
+  };
 
   return (
     <Editor

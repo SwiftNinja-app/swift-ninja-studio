@@ -1,4 +1,6 @@
 import Runner from "./runner";
+import Network from './network';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class App {
 
@@ -6,8 +8,10 @@ export default class App {
     this.runner = new Runner();
   }
 
-  onRunCallback() {
-    console.log("On Run callback")
+  async onRunCallback(code) {
+    console.log("On Run callback: " + code)
+    const id = uuidv4();
+    const response = await Network.executeSwiftCodeAPI(code, id);
   }
 
   onShareCallBack() {
