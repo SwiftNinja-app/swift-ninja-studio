@@ -1,5 +1,6 @@
 import Editor from "@monaco-editor/react";
 import React, { useRef } from "react";
+import * as CodeDatasource from "../model/codeDatasource";
 
 export default function MonacoEditor({ onRunCallback, onShareCallback }) {
   const editorRef = useRef(null);
@@ -34,7 +35,7 @@ export default function MonacoEditor({ onRunCallback, onShareCallback }) {
     <Editor
       height="100vh"
       theme="vs-light"
-      defaultValue="// some comment"
+      defaultValue={CodeDatasource.helloWorld()}
       defaultLanguage="swift"
       onMount={handleEditorDidMount}
       options={{
