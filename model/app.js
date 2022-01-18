@@ -1,17 +1,16 @@
-import Runner from "./runner";
-import * as Network from './network';
-import { v4 as uuidv4 } from 'uuid';
+import * as Runner from "./runner";
 
 export default class App {
 
   constructor() {
-    this.runner = new Runner();
+    console.log("Init App")
+    this.onNewConsoleMessage = (message) => {};
   }
 
   async onRunCallback(code) {
-    const id = uuidv4();
-    const response = await Network.executeSwiftCodeAPI(code, id);
-    
+    const response = await Runner.executeCode(code);
+    const output = response.data.result;
+    this.onNewConsoleMessage(output);
   }
 
   onShareCallBack() {

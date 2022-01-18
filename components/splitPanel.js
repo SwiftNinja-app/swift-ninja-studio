@@ -13,8 +13,8 @@ export default function SplitPanel() {
 
   return (
     <Allotment minSize={300}>
-      <MonacoEditor onRunCallback={app.onRunCallback} onShareCallback={app.onShareCallBack}/>
-      <Console></Console>
+      <MonacoEditor onRunCallback={(code) => {app.onRunCallback(code)}} onShareCallback={app.onShareCallBack}/>
+      <Console app={app}></Console>
     </Allotment>
   );
 }

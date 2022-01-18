@@ -10,5 +10,5 @@ export const executeSwiftCodeAPI = async (code, id) =>{
     id
   }
   const response = await axiosInstance.post('/api/v1/machine/5.5.2/run', param);
-  return response;
+  return response.data;
 }

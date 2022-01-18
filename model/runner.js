@@ -1,9 +1,8 @@
-export default class Runnder {
-  constructor() {
-    this.onMessage = () => {};
-  }
+import * as Network from "./network";
+import { v4 as uuidv4 } from "uuid";
 
-  async run(param) {
-    
-  }
-}
+const id = uuidv4();
+
+export const executeCode = async (code) => {
+  return await Network.executeSwiftCodeAPI(code, id);
+};
